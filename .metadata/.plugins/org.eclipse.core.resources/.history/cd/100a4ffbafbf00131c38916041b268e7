@@ -1,0 +1,44 @@
+package com.spacebottle.models;
+
+public class Position {
+	@com.google.gson.annotations.SerializedName("id")
+	private String mId;
+	
+	@com.google.gson.annotations.SerializedName("user_id")
+	private String mUserId;
+	
+	@com.google.gson.annotations.SerializedName("latitude")
+	private double mLatitude;
+	
+	@com.google.gson.annotations.SerializedName("logitude")
+	private double mLongitude;
+	
+	
+	public String getId(){
+		return mId;
+	}
+	
+	public void setId(String id){
+		mId = id;
+	}
+	
+	public String getUserId(){
+		return mId;
+	}
+	
+	public void setUserId(String userId){
+		mUserId = userId;
+	}
+	
+	public double getLatitude(){
+		return mLatitude;
+	}
+	
+	public void setLatitude(double latitude){
+		mLatitude = latitude;
+	}
+	
+	public double getLogitude(){
+		return mLongitude;
+	}
+}

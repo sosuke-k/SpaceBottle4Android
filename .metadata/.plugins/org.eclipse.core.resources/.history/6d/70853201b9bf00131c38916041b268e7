@@ -1,0 +1,5 @@
+package com.spacebottle.controllers;
+
+public class Tickets extends SBTable<Ticket> {
+
+}

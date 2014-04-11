@@ -1,0 +1,7 @@
+package com.spacebottle.controllers;
+
+import com.microsoft.windowsazure.notifications.NotificationsHandler;
+
+public class PushHandler extends NotificationsHandler {
+
+}

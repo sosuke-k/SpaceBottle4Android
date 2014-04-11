@@ -1,0 +1,5 @@
+package com.spacebottle.models;
+
+public class Ticket {
+
+}

@@ -1,0 +1,5 @@
+package com.spacebottle.controllers;
+
+public class Destinations extends SBTable<Destination> {
+
+}

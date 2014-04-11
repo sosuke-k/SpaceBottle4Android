@@ -1,0 +1,28 @@
+package com.spacebottle.controllers;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.spacebottle.models.Device;
+
+public class Devices extends SBTable<Device>{
+
+	public Devices(MobileServiceTable<Device> table) {
+		super(table);
+	}
+
+	@Override
+	void add(Device item, TableOperationCallback<Device> callback) {
+		mTable.insert(item, callback);
+	}
+
+	@Override
+	void remove(Device item, TableDeleteCallback callback) {
+		mTable.delete(item, callback);
+	}
+
+	@Override
+	void update(Device item, TableOperationCallback<Device> callback) {
+		
+	}
+
+}

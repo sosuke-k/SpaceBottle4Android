@@ -1,0 +1,44 @@
+package com.spacebottle.views;
+
+import com.microsoft.windowsazure.mobileservices.NextServiceFilterCallback;
+import com.microsoft.windowsazure.mobileservices.ServiceFilter;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterRequest;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponseCallback;
+
+import android.app.Activity;
+import android.widget.ProgressBar;
+
+abstract class SBActivity extends Activity {
+	private ProgressBar mProgressBar;
+	private class ProgressFilter implements ServiceFilter {
+		
+		@Override
+		public void handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback,
+				final ServiceFilterResponseCallback responseCallback) {
+			runOnUiThread(new Runnable() {
+
+				@Override
+				public void run() {
+					if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.VISIBLE);
+				}
+			});
+			
+			nextServiceFilterCallback.onNext(request, new ServiceFilterResponseCallback() {
+				
+				@Override
+				public void onResponse(ServiceFilterResponse response, Exception exception) {
+					runOnUiThread(new Runnable() {
+
+						@Override
+						public void run() {
+							if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.GONE);
+						}
+					});
+					
+					if (responseCallback != null)  responseCallback.onResponse(response, exception);
+				}
+			});
+		}
+	}
+}

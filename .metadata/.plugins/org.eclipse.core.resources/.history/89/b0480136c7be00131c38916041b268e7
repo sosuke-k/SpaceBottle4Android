@@ -1,0 +1,6 @@
+package com.spacebottle.controllers;
+
+public class SBTable<E> {
+	private MobileServiceTable<E> mTable;
+
+}

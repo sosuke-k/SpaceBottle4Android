@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">spacebottle</string>
+    <string name="add_textbox_hint">Add a ToDo item</string>
+    <string name="add_button_text">Add</string>
+    <string name="mobile_services">Mobile Services </string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="checkbox_text">Item Text</string>
+    <string name="sender_id">879711313152</string>
+    <string name="sb_url">https://spacebottle.azure-mobile.net/</string>
+    <string name="sb_secret">NIxTTzFiVmtUptmvETPKInerCKgRub76</string>
+    
+    
+</resources>

@@ -1,0 +1,8 @@
+package com.example.spacebottle;
+
+import android.content.Context;
+import com.microsoft.windowsazure.notifications.NotificationsHandler;
+
+public class MyHandler extends NotificationsHandler {
+
+}

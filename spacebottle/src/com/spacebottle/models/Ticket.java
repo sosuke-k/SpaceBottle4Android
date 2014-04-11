@@ -1,0 +1,51 @@
+package com.spacebottle.models;
+
+import java.util.Date;
+
+public class Ticket {
+	@com.google.gson.annotations.SerializedName("id")
+	private String mId;
+	
+	@com.google.gson.annotations.SerializedName("user_id")
+	private String mUserId;
+	
+	@com.google.gson.annotations.SerializedName("satellite_id")
+	private String mSatelliteId;
+	
+	@com.google.gson.annotations.SerializedName("limit")
+	private Date mLimit;
+	
+	@com.google.gson.annotations.SerializedName("is_used")
+	private boolean mIsUsed;
+	
+	public String getId(){
+		return mId;
+	}
+	public void setId(String id){
+		mId = id;
+	}
+	public String getUserId(){
+		return mUserId;
+	}
+	public void setUserId(String userId){
+		mUserId = userId;
+	}
+	public String getSatelliteId(){
+		return mSatelliteId;
+	}
+	public void setSatelliteId(String satellite_id){
+		mSatelliteId = satellite_id;
+	}
+	public Date getLimit(){
+		return mLimit;
+	}
+	public void setLimit(Date limit){
+		mLimit = limit;
+	}
+	public boolean isUsed(){
+		return mIsUsed;
+	}
+	public void setUsed(boolean used){
+		mIsUsed = used;
+	}
+}

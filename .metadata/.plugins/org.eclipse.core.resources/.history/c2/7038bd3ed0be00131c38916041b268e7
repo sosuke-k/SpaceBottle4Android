@@ -1,0 +1,5 @@
+package com.spacebottle.helper;
+
+public interface SBAuthenticateCallback {
+
+}

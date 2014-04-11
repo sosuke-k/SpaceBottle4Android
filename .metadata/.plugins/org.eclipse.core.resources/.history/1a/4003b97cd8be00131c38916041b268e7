@@ -1,0 +1,33 @@
+package com.spacebottle.controllers;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.TableDeleteCallback;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+
+abstract class SBTable<E> {
+	private Class<E> itemType;
+	public SBTable(E...e){
+		@SuppressWarnings("unchecked")
+		Class<E> type = (Class<E>) e.getClass().getComponentType();
+		itemType = type;
+	}
+	public SBTable(MobileServiceTable<E> table){
+		setTable(table);
+	}
+	public SBTable(MobileServiceClient client, E...e){
+		this(client.getTable((Class<E>) e.getClass().getComponentType()));
+	}
+	protected MobileServiceTable<E> mTable;
+	
+	public MobileServiceTable<E> getTable(){
+		return mTable;
+	}
+	public final void setTable(MobileServiceTable<E> table){
+		mTable = table;
+	}
+	abstract void add(E item, TableOperationCallback<E> callback);
+	abstract void remove(E item, TableDeleteCallback callback);
+	abstract void update(E item, TableOperationCallback<E> callback);
+	
+}

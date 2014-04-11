@@ -1,0 +1,15 @@
+package com.spacebottle.models;
+
+public class Device {
+	@com.google.gson.annotations.SerializedName("id")
+	private String mId;
+	
+	@com.google.gson.annotations.SerializedName("user_id")
+	private String mUserId;
+	
+	@com.google.gson.annotations.SerializedName("registration_id")
+	private String mRegistration_id;
+	
+	
+
+}

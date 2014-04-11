@@ -1,0 +1,60 @@
+package com.spacebottle.models;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.TableDeleteCallback;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
+
+public class Positions extends SBTable<Position> {
+
+	public Positions(MobileServiceTable<Position> table) {
+		super(table);
+	}
+	
+	public Positions(MobileServiceClient client){
+		this(client.getTable(Position.class));
+	}
+
+	@Override
+	public void add(Position item, TableOperationCallback<Position> callback) {
+		getTable().insert(item, callback);
+	}
+
+	@Override
+	public void remove(Position item, TableDeleteCallback callback) {
+		getTable().delete(item, callback);
+	}
+
+	@Override
+	public void update(Position item, TableOperationCallback<Position> callback) {
+		getTable().update(item, callback);
+	}
+	
+	public void read(TableQueryCallback<Position> callback){
+		getTable().where().execute(callback);
+	}
+	
+	public void addOrUpdate(Position item, TableOperationCallback<Position> callback){
+		if(item.getId() == null){
+			add(item, callback);
+		} else {
+			update(item, callback);
+		}
+	}
+	public void addOrUpdate(final Position item){
+		if(item.getId() == null){
+			add(item, new TableOperationCallback<Position>(){
+				@Override
+				public void onCompleted(Position position, Exception excepion,
+						ServiceFilterResponse response) {
+					item.setId(position.getId());
+					item.setUserId(position.getUserId());
+				}} );
+		} else {
+			update(item, EmptyOperationCallback);
+		}
+	}
+
+}

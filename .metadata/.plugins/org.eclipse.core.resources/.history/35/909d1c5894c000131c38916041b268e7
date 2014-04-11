@@ -1,0 +1,56 @@
+package com.spacebottle.controllers;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+
+import com.example.spacebottle.R;
+import com.microsoft.windowsazure.notifications.NotificationsHandler;
+
+public class PushHandler extends NotificationsHandler {
+	@com.google.gson.annotations.SerializedName("handle")
+	private static String mHandle;
+
+	public static String getHandle() {
+	    return mHandle;
+	}
+
+	public static final void setHandle(String handle) {
+	    mHandle = handle;
+	}
+	
+	@Override
+	public void onRegistered(Context context, String gcmRegistrationId) {
+	    //super.onRegistered(context, gcmRegistrationId);
+	    setHandle(gcmRegistrationId);
+	    
+	    NotificationManager mNotificationManager;
+	    mNotificationManager = (NotificationManager)context.getSystemService(context.NOTIFICATION_SERVICE);
+	    
+	    Notification notification;
+	    notification = new Notification.BigTextStyle(
+	    	    new Notification.Builder(context)
+	            .setContentTitle("ContentTitle")
+	            .setSmallIcon(R.drawable.ic_launcher)
+	            .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher)))
+	        .bigText("BigText")
+	    //  .setBigContentTitle("BigContentTitle") // Notification.Builder#setContentTitle() Çè„èëÇ´
+	        .setSummaryText("SummaryText")
+	        .build();
+
+
+	    PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
+	                   new Intent(this, jp.co.taosoftware.android.podcast.ChannelView.class),
+	                   Intent.FLAG_ACTIVITY_NEW_TASK);
+	    notification.setLatestEventInfo(this,
+	                   getText(R.string.podcast_service_name), 
+	                   getText(R.string.service_new_articles), contentIntent);
+
+	    int notificationId = R.string.service_new_articles_format;
+
+	    mNotificationManager.notify(notificationId, notification);
+
+	}
+}

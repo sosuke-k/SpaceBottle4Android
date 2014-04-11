@@ -1,0 +1,55 @@
+package com.spacebottle.controllers;
+
+import com.example.spacebottle.MyHandler;
+import com.example.spacebottle.R;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
+import com.spacebottle.helper.SBAuthenticateCallback;
+import com.spacebottle.models.Device;
+import com.spacebottle.models.Devices;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ProgressBar;
+
+public class HomeActivity extends SBActivity {
+	
+	private Devices mDevices;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
+		hideProgressBar();
+		NotificationsManager.handleNotifications(this, getString(R.string.sender_id), MyHandler.class);
+		connect(new SBAuthenticateCallback(){
+
+			@Override
+			public void success() {
+				mDevices = new Devices(mClient);
+				mDevices.add(new Device(MyHandler.getHandle()));
+			}
+
+			@Override
+			public void error(Exception exception) {
+				// TODO Auto-generated method stub
+				
+			}});
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.activity_main, menu);
+		return true;
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.menu_refresh) {
+		}
+		
+		return true;
+	}
+}

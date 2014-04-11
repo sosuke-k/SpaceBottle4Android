@@ -1,0 +1,35 @@
+package com.spacebottle.controllers;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.TableDeleteCallback;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.spacebottle.models.Position;
+
+public class Positions extends SBTable<Position> {
+
+	public Positions(MobileServiceTable<Position> table) {
+		super(table);
+	}
+	public Positions(MobileServiceClient client){
+		this(client.getTable(Position.class));
+	}
+
+	@Override
+	public void add(Position item, TableOperationCallback<Position> callback) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove(Position item, TableDeleteCallback callback) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Position item, TableOperationCallback<Position> callback) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

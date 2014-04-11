@@ -1,0 +1,5 @@
+package com.spacebottle.controllers;
+
+public class Positions extends SBTable<Position> {
+
+}

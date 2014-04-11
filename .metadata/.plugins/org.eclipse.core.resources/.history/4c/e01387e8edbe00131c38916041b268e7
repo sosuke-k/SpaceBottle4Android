@@ -1,0 +1,6 @@
+package com.spacebottle.models;
+
+public class Destination {
+	@com.google.gson.annotations.SerializedName("id")
+	private String Id;
+}

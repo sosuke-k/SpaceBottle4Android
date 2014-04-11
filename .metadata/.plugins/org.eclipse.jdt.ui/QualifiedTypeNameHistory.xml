@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.microsoft.windowsazure.mobileservices.MobileServiceTable"/>
+<fullyQualifiedTypeName name="com.microsoft.windowsazure.mobileservices.TableOperationCallback"/>
+<fullyQualifiedTypeName name="com.example.spacebottle.R.string"/>
+<fullyQualifiedTypeName name="com.spacebottle.helper.SBAuthenticateCallback"/>
+<fullyQualifiedTypeName name="com.microsoft.windowsazure.mobileservices.TableDeleteCallback"/>
+<fullyQualifiedTypeName name="com.spacebottle.controllers.Devices"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Device"/>
+<fullyQualifiedTypeName name="com.google.gson.annotations.Until"/>
+<fullyQualifiedTypeName name="com.google.gson.annotations.Since"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Destination"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Message"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Position"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Satellite"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Ticket"/>
+<fullyQualifiedTypeName name="com.microsoft.windowsazure.mobileservices.MobileServiceClient"/>
+<fullyQualifiedTypeName name="android.os.Parcel"/>
+<fullyQualifiedTypeName name="android.os.RemoteException"/>
+<fullyQualifiedTypeName name="android.app.AlarmManager"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.location.LocationManager"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.location.Criteria"/>
+<fullyQualifiedTypeName name="android.location.LocationListener"/>
+<fullyQualifiedTypeName name="android.os.Looper"/>
+<fullyQualifiedTypeName name="com.spacebottle.models.Positions"/>
+<fullyQualifiedTypeName name="com.microsoft.windowsazure.mobileservices.TableQueryCallback"/>
+<fullyQualifiedTypeName name="android.app.NotificationManager"/>
+<fullyQualifiedTypeName name="android.app.Notification"/>
+<fullyQualifiedTypeName name="android.app.PendingIntent"/>
+<fullyQualifiedTypeName name="com.example.spacebottle.R"/>
+<fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
+<fullyQualifiedTypeName name="com.example.spacebottle.R.drawable"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.drawable"/>
+<fullyQualifiedTypeName name="android.net.Uri"/>
+<fullyQualifiedTypeName name="com.microsoft.windowsazure.notifications.NotificationsManager"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+</qualifiedTypeNameHistroy>

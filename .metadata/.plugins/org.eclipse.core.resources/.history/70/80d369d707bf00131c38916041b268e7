@@ -1,0 +1,20 @@
+package com.spacebottle.models;
+
+import java.util.Date;
+
+public class Ticket {
+	@com.google.gson.annotations.SerializedName("id")
+	private String mId;
+	
+	@com.google.gson.annotations.SerializedName("user_id")
+	private String mUserId;
+	
+	@com.google.gson.annotations.SerializedName("satellite_id")
+	private String mSatelliteId;
+	
+	@com.google.gson.annotations.SerializedName("limit")
+	private Date mLimit;
+	
+	@com.google.gson.annotations.SerializedName("is_used")
+	private boolean mIsUsed;
+}

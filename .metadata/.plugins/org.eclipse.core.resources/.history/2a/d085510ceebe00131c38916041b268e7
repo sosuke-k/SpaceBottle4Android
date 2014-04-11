@@ -1,0 +1,16 @@
+package com.spacebottle.models;
+
+public class Destination {
+	@com.google.gson.annotations.SerializedName("id")
+	private String mId;
+	
+	@com.google.gson.annotations.SerializedName("message_id")
+	private String mMessageId;
+	
+	@com.google.gson.annotations.SerializedName("user_id")
+	private String mUserId;
+	
+	public setId(String id){
+		mId = id;
+	}
+}

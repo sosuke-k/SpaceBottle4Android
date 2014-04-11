@@ -1,0 +1,12 @@
+package com.spacebottle.models;
+
+public class Satellite {
+	@com.google.gson.annotations.SerializedName("id")
+	private String mId;
+	
+	@com.google.gson.annotations.SerializedName("name")
+	private String mName;
+	
+	@com.google.gson.annotations.SerializedName("name")
+	private String mSatelliteNumber;
+}

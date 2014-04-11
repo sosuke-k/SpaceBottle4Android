@@ -1,0 +1,34 @@
+package com.spacebottle.controllers;
+
+import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+import com.microsoft.windowsazure.mobileservices.TableDeleteCallback;
+import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.spacebottle.models.Satellite;
+
+public class Satellites extends SBTable<Satellite> {
+
+	public Satellites(MobileServiceTable<Satellite> table) {
+		super(table);
+	}
+	public Satellites(MobileServiceClient client){
+		this(client.getTable(Satellite.class));
+	}
+
+	@Override
+	public void add(Satellite item, TableOperationCallback<Satellite> callback) {
+		getTable().insert(item, callback);
+	}
+
+	@Override
+	public void remove(Satellite item, TableDeleteCallback callback) {
+		getTable().delete(item, callback);
+	}
+
+	@Override
+	public void update(Satellite item,
+			TableOperationCallback<Satellite> callback) {
+		getTable().update(item, callback);
+	}
+
+}
