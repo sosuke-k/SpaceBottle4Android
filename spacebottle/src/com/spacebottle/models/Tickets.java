@@ -4,6 +4,7 @@ import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
 import com.microsoft.windowsazure.mobileservices.TableDeleteCallback;
 import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
 
 public class Tickets extends SBTable<Ticket> {
 
@@ -30,8 +31,8 @@ public class Tickets extends SBTable<Ticket> {
 		getTable().update(item, callback);
 	}
 	
-//	public void read(){
-//		getTable().where().
-//	}
+	public void read(TableQueryCallback<Ticket> callback){
+		getTable().where().execute(callback);
+	}
 
 }
