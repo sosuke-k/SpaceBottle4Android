@@ -11,18 +11,22 @@ import com.microsoft.windowsazure.notifications.NotificationsManager;
 import com.spacebottle.helper.SBAuthenticateCallback;
 import com.spacebottle.models.Device;
 import com.spacebottle.models.Devices;
+import com.spacebottle.models.Messages;
 import com.spacebottle.models.Position;
 import com.spacebottle.models.Positions;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -37,7 +41,12 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.activity_main);
+		
+		Intent intent=new Intent(this, PostActivity.class);
+        startActivity(intent);
+		
 		self = this;
 		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
 		hideProgressBar();
@@ -75,8 +84,8 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		
 		mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		mCriteria = new Criteria();
-		mCriteria.setAccuracy(Criteria.ACCURACY_COARSE); // �ᐸ�x
-		mCriteria.setPowerRequirement(Criteria.POWER_LOW); // �����d��
+		mCriteria.setAccuracy(Criteria.ACCURACY_COARSE); // �ｽ瘰ｸ�ｽx
+		mCriteria.setPowerRequirement(Criteria.POWER_LOW); // �ｽ�ｽ�ｽ�ｽ�ｽd�ｽ�ｽ
 		
 		mPositions = new Positions(mClient);
 		mPositions.read(new TableQueryCallback<Position>(){

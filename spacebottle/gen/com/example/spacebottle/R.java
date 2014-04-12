@@ -164,6 +164,7 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f010010;
     }
     public static final class color {
+        public static final int black=0x7f04000a;
         public static final int common_action_bar_splitter=0x7f040009;
         /**  Sign-in Button Colors 
          */
@@ -176,8 +177,9 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f040006;
         public static final int common_signin_btn_light_text_focused=0x7f040007;
         public static final int common_signin_btn_light_text_pressed=0x7f040005;
-        public static final int common_signin_btn_text_dark=0x7f04000a;
-        public static final int common_signin_btn_text_light=0x7f04000b;
+        public static final int common_signin_btn_text_dark=0x7f04000c;
+        public static final int common_signin_btn_text_light=0x7f04000d;
+        public static final int white=0x7f04000b;
     }
     public static final class drawable {
         public static final int common_signin_btn_icon_dark=0x7f020000;
@@ -204,27 +206,35 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020015;
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
-        public static final int ic_launcher=0x7f020018;
-        public static final int ic_plusone_medium_off_client=0x7f020019;
-        public static final int ic_plusone_small_off_client=0x7f02001a;
-        public static final int ic_plusone_standard_off_client=0x7f02001b;
-        public static final int ic_plusone_tall_off_client=0x7f02001c;
+        public static final int earth=0x7f020018;
+        public static final int eisei=0x7f020019;
+        public static final int ic_launcher=0x7f02001a;
+        public static final int ic_plusone_medium_off_client=0x7f02001b;
+        public static final int ic_plusone_small_off_client=0x7f02001c;
+        public static final int ic_plusone_standard_off_client=0x7f02001d;
+        public static final int ic_plusone_tall_off_client=0x7f02001e;
+        public static final int logo=0x7f02001f;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f05000c;
-        public static final int button1=0x7f05000b;
+        public static final int LinearLayout1=0x7f050011;
         public static final int buttonAddToDo=0x7f050008;
-        public static final int checkToDoItem=0x7f05000d;
+        public static final int checkToDoItem=0x7f050012;
+        public static final int earth=0x7f05000b;
+        public static final int eisei=0x7f05000a;
         public static final int hybrid=0x7f050004;
+        public static final int limit_clock=0x7f05000e;
+        public static final int limit_clock_container=0x7f05000d;
         public static final int listViewToDo=0x7f050009;
         public static final int loadingProgressBar=0x7f050006;
-        public static final int menu_refresh=0x7f05000e;
+        public static final int logo=0x7f05000c;
+        public static final int menu_refresh=0x7f050013;
+        public static final int message_text_view=0x7f050010;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
+        public static final int post_button=0x7f05000f;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int textNewToDo=0x7f050007;
-        public static final int textView1=0x7f05000a;
         public static final int textViewTitle=0x7f050005;
     }
     public static final class integer {
@@ -232,9 +242,10 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
-        public static final int activity_post=0x7f030001;
-        public static final int activity_to_do=0x7f030002;
-        public static final int row_list_to_do=0x7f030003;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_post=0x7f030002;
+        public static final int activity_to_do=0x7f030003;
+        public static final int row_list_to_do=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
