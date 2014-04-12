@@ -71,12 +71,12 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 	}
 	private void initialize(){
 		mDevices = new Devices(mClient);
-		mDevices.add(new Device(MyHandler.getHandle()));
+		mDevices.add(new Device(PushHandler.getHandle()));
 		
 		mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		mCriteria = new Criteria();
-		mCriteria.setAccuracy(Criteria.ACCURACY_COARSE); // í·ê∏ìx
-		mCriteria.setPowerRequirement(Criteria.POWER_LOW); // í·è¡îÔìdóÕ
+		mCriteria.setAccuracy(Criteria.ACCURACY_COARSE); // ÔøΩ·ê∏ÔøΩx
+		mCriteria.setPowerRequirement(Criteria.POWER_LOW); // ÔøΩÔøΩÔøΩÔøΩÔøΩdÔøΩÔøΩ
 		
 		mPositions = new Positions(mClient);
 		mPositions.read(new TableQueryCallback<Position>(){
