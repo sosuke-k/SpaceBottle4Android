@@ -272,7 +272,7 @@ containing a value of this type.
         public static final int receive_message=0x7f0a0002;
     }
     public static final class string {
-        public static final int action_settings=0x7f060024;
+        public static final int action_settings=0x7f060026;
         public static final int add_button_text=0x7f06001d;
         public static final int add_textbox_hint=0x7f06001c;
         public static final int app_name=0x7f06001b;
@@ -371,15 +371,17 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060013;
-        public static final int hello_world=0x7f060025;
+        public static final int connection_string=0x7f060023;
+        public static final int hello_world=0x7f060027;
+        public static final int hub_name=0x7f060022;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f06001a;
         public static final int menu_refresh=0x7f06001f;
-        public static final int menu_send=0x7f060022;
+        public static final int menu_send=0x7f060024;
         public static final int mobile_services=0x7f06001e;
         public static final int sender_id=0x7f060021;
-        public static final int title_activity_edit_message=0x7f060023;
+        public static final int title_activity_edit_message=0x7f060025;
     }
     public static final class style {
         /** 

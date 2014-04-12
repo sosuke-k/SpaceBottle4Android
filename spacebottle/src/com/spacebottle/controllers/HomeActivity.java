@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.example.spacebottle.MyHandler;
 import com.example.spacebottle.R;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.microsoft.windowsazure.messaging.NotificationHub;
 import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
@@ -22,6 +24,7 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
@@ -43,6 +46,8 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 	private LocationManager mLocationManager;
 	private Criteria mCriteria;
 	private SharedPreferences pref;
+	private GoogleCloudMessaging gcm;
+	private NotificationHub hub;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +58,7 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		self = this;
 		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
 		hideProgressBar();
-		NotificationsManager.handleNotifications(this, getString(R.string.sender_id), PushHandler.class);
+
 
 //		ImageView eisei = (ImageView) findViewById(R.id.eisei);
 //		eisei.setOnClickListener(new OnClickListener(){
@@ -84,6 +89,23 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 			}});
 	}
 
+	@SuppressWarnings("unchecked")
+	private void registerWithNotificationHubs() {
+	   new AsyncTask() {
+	      @Override
+	      protected Object doInBackground(Object... params) {
+	         try {
+	            String regid = gcm.register("879711313152");
+	            //hub.register(regid);
+	            mDevices = new Devices(mClient);
+	    		mDevices.add(new Device(hub.register(regid).getRegistrationId()));
+	         } catch (Exception e) {
+	            return e;
+	         }
+	         return null;
+	     }
+	   }.execute(null, null, null);
+	}
 	@Override
 	public void onResume(){
 		super.onResume();
@@ -116,8 +138,11 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		return true;
 	}
 	private void initialize(){
-		mDevices = new Devices(mClient);
-		mDevices.add(new Device(PushHandler.getHandle()));
+		NotificationsManager.handleNotifications(this, "879711313152", PushHandler.class);
+		gcm = GoogleCloudMessaging.getInstance(this);
+		hub = new NotificationHub(getString(R.string.hub_name), getString(R.string.connection_string), this);
+		registerWithNotificationHubs();
+
 
 		mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		mCriteria = new Criteria();

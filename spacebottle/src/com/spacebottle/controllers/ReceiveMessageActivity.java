@@ -1,6 +1,7 @@
 package com.spacebottle.controllers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Display;
@@ -21,6 +22,8 @@ public class ReceiveMessageActivity extends Activity {
 	private ImageView bottle;
 	private Display disp;
 
+	private Intent intent;
+
 	private SequentialAnimationsRunner anim_runner;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class ReceiveMessageActivity extends Activity {
 		setContentView(R.layout.activity_receive_message);
 		satelite = (ImageView)findViewById(R.id.satelite);
 		bottle = (ImageView)findViewById(R.id.bottle);
-
+		intent = getIntent();
 		WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
 		disp = wm.getDefaultDisplay();
 		sateliteAnim();
@@ -62,7 +65,9 @@ public class ReceiveMessageActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-            	finish();
+            	Intent intent2 = new Intent(getApplicationContext(),PostActivity.class);
+    			intent2.putExtra("bundle",intent.getBundleExtra("bundle"));
+    			startActivity(intent2);
             }
         }, 4500);
 	}

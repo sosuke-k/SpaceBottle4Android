@@ -7,13 +7,15 @@
     <string name="menu_refresh">Refresh</string>
     <string name="checkbox_text">Item Text</string>
     <string name="sender_id">879711313152</string>
-    
-    
-    
+    <string name="hub_name">spacebottlehub</string>
+    <string name="connection_string">Endpoint=sb://spacebottlehub-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=xSbtiVFmWbdwqi8ij63tkeUWIPeeU7pTB1ePSREBW9I=</string>
+
+
+
     <string name="menu_send">Send</string>
-    
+
     <string name="title_activity_edit_message">EditMessage</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    
+
 </resources>
