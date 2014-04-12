@@ -43,21 +43,21 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 	private LocationManager mLocationManager;
 	private Criteria mCriteria;
 	private SharedPreferences pref;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_home);
-		
+
 		self = this;
 		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
 		hideProgressBar();
 		NotificationsManager.handleNotifications(this, getString(R.string.sender_id), PushHandler.class);
-		
+
 //		ImageView eisei = (ImageView) findViewById(R.id.eisei);
 //		eisei.setOnClickListener(new OnClickListener(){
-			
+
 		Button btn = (Button)findViewById(R.id.buttonAddToDo);
 		btn.setOnClickListener(new OnClickListener(){
 
@@ -82,7 +82,7 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 				// TODO Auto-generated method stub
 			}});
 	}
-	
+
 	@Override
 	public void onResume(){
 		super.onResume();
@@ -100,7 +100,7 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		editor.putInt("background-flag", 0);
 		editor.commit();
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
@@ -111,18 +111,18 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		if (item.getItemId() == R.id.menu_refresh) {
 			updateCurrentPosition();
 		}
-		
+
 		return true;
 	}
 	private void initialize(){
 		mDevices = new Devices(mClient);
 		mDevices.add(new Device(PushHandler.getHandle()));
-		
+
 		mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		mCriteria = new Criteria();
 		mCriteria.setAccuracy(Criteria.ACCURACY_COARSE); // �ｽ瘰ｸ�ｽx
 		mCriteria.setPowerRequirement(Criteria.POWER_LOW); // �ｽ�ｽ�ｽ�ｽ�ｽd�ｽ�ｽ
-		
+
 		mPositions = new Positions(mClient);
 		mPositions.read(new TableQueryCallback<Position>(){
 
