@@ -1,6 +1,8 @@
 package com.spacebottle.models;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
 	@com.google.gson.annotations.SerializedName("id")
 	private String mId;
 	

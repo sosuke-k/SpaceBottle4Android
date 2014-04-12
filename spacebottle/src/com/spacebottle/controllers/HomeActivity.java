@@ -17,6 +17,7 @@ import com.spacebottle.models.Positions;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -26,31 +27,48 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class HomeActivity extends SBActivity implements LocationListener  {
-	
+	public static final String PREFERENCES_FILE_NAME = "preference";
 	private Devices mDevices;
 	private Positions mPositions;
 	private Position mPosition;
 	private LocationManager mLocationManager;
 	private Criteria mCriteria;
+	private SharedPreferences pref;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_main);
-		
-		Intent intent=new Intent(this, PostActivity.class);
-        startActivity(intent);
+		setContentView(R.layout.activity_home);
 		
 		self = this;
 		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
 		hideProgressBar();
 		NotificationsManager.handleNotifications(this, getString(R.string.sender_id), PushHandler.class);
+		
+//		ImageView eisei = (ImageView) findViewById(R.id.eisei);
+//		eisei.setOnClickListener(new OnClickListener(){
+			
+		Button btn = (Button)findViewById(R.id.buttonAddToDo);
+		btn.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO 自動生成されたメソッド・スタブ
+				Intent intent = new Intent(getApplicationContext(),PostActivity.class);
+				intent.putExtra("position", mPosition);
+				startActivity(intent);
+			}
+		});
 		connect(new SBAuthenticateCallback(){
 
 			@Override
@@ -63,6 +81,24 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 			public void error(Exception exception) {
 				// TODO Auto-generated method stub
 			}});
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		pref = getSharedPreferences(PREFERENCES_FILE_NAME,0);
+		SharedPreferences.Editor editor = pref.edit();
+		editor.putInt("background-flag", 1);
+		editor.commit();
+	}
+
+	@Override
+	public void onPause(){
+		super.onPause();
+		pref = getSharedPreferences(PREFERENCES_FILE_NAME,0);
+		SharedPreferences.Editor editor = pref.edit();
+		editor.putInt("background-flag", 0);
+		editor.commit();
 	}
 	
 	@Override

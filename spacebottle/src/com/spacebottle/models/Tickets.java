@@ -29,5 +29,9 @@ public class Tickets extends SBTable<Ticket> {
 	public void update(Ticket item, TableOperationCallback<Ticket> callback) {
 		getTable().update(item, callback);
 	}
+	
+//	public void read(){
+//		getTable().where().
+//	}
 
 }

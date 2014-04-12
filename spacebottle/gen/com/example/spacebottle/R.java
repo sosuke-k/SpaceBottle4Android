@@ -181,6 +181,12 @@ containing a value of this type.
         public static final int common_signin_btn_text_light=0x7f04000d;
         public static final int white=0x7f04000b;
     }
+    public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int activity_horizontal_margin=0x7f080000;
+        public static final int activity_vertical_margin=0x7f080001;
+    }
     public static final class drawable {
         public static final int common_signin_btn_icon_dark=0x7f020000;
         public static final int common_signin_btn_icon_disabled_dark=0x7f020001;
@@ -208,49 +214,62 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
         public static final int earth=0x7f020018;
         public static final int eisei=0x7f020019;
-        public static final int ic_launcher=0x7f02001a;
-        public static final int ic_plusone_medium_off_client=0x7f02001b;
-        public static final int ic_plusone_small_off_client=0x7f02001c;
-        public static final int ic_plusone_standard_off_client=0x7f02001d;
-        public static final int ic_plusone_tall_off_client=0x7f02001e;
-        public static final int logo=0x7f02001f;
+        public static final int gradient_box=0x7f02001a;
+        public static final int ic_launcher=0x7f02001b;
+        public static final int ic_plusone_medium_off_client=0x7f02001c;
+        public static final int ic_plusone_small_off_client=0x7f02001d;
+        public static final int ic_plusone_standard_off_client=0x7f02001e;
+        public static final int ic_plusone_tall_off_client=0x7f02001f;
+        public static final int logo=0x7f020020;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f050011;
-        public static final int buttonAddToDo=0x7f050008;
-        public static final int checkToDoItem=0x7f050012;
-        public static final int earth=0x7f05000b;
-        public static final int eisei=0x7f05000a;
+        public static final int LinearLayout1=0x7f050013;
+        public static final int action_settings=0x7f050019;
+        public static final int buttonAddToDo=0x7f050009;
+        public static final int checkToDoItem=0x7f050016;
+        public static final int dialog_edittext=0x7f050015;
+        public static final int dialog_textview=0x7f050014;
+        public static final int earth=0x7f05000c;
+        public static final int editTextMessage=0x7f050005;
+        public static final int eisei=0x7f05000b;
         public static final int hybrid=0x7f050004;
-        public static final int limit_clock=0x7f05000e;
-        public static final int limit_clock_container=0x7f05000d;
-        public static final int listViewToDo=0x7f050009;
-        public static final int loadingProgressBar=0x7f050006;
-        public static final int logo=0x7f05000c;
-        public static final int menu_refresh=0x7f050013;
-        public static final int message_text_view=0x7f050010;
+        public static final int limit_clock=0x7f05000f;
+        public static final int limit_clock_container=0x7f05000e;
+        public static final int listViewToDo=0x7f05000a;
+        public static final int loadingProgressBar=0x7f050007;
+        public static final int logo=0x7f05000d;
+        public static final int menu_refresh=0x7f050017;
+        public static final int menu_send=0x7f050018;
+        public static final int message_text_view=0x7f050011;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int post_button=0x7f05000f;
+        public static final int post_button=0x7f050010;
+        public static final int satelite=0x7f050012;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
-        public static final int textNewToDo=0x7f050007;
-        public static final int textViewTitle=0x7f050005;
+        public static final int textNewToDo=0x7f050008;
+        public static final int textViewTitle=0x7f050006;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
     }
     public static final class layout {
-        public static final int activity_home=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_post=0x7f030002;
-        public static final int activity_to_do=0x7f030003;
-        public static final int row_list_to_do=0x7f030004;
+        public static final int activity_edit_message=0x7f030000;
+        public static final int activity_home=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_post=0x7f030003;
+        public static final int activity_receive_message=0x7f030004;
+        public static final int activity_to_do=0x7f030005;
+        public static final int edit_dialog=0x7f030006;
+        public static final int row_list_to_do=0x7f030007;
     }
     public static final class menu {
-        public static final int activity_main=0x7f090000;
+        public static final int activity_main=0x7f0a0000;
+        public static final int edit_message=0x7f0a0001;
+        public static final int receive_message=0x7f0a0002;
     }
     public static final class string {
+        public static final int action_settings=0x7f060024;
         public static final int add_button_text=0x7f06001d;
         public static final int add_textbox_hint=0x7f06001c;
         public static final int app_name=0x7f06001b;
@@ -349,12 +368,15 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060013;
+        public static final int hello_world=0x7f060025;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f06001a;
         public static final int menu_refresh=0x7f06001f;
+        public static final int menu_send=0x7f060022;
         public static final int mobile_services=0x7f06001e;
         public static final int sender_id=0x7f060021;
+        public static final int title_activity_edit_message=0x7f060023;
     }
     public static final class style {
         /** 
@@ -378,11 +400,11 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.

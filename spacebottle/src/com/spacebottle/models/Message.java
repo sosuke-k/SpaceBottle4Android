@@ -31,6 +31,13 @@ public class Message {
 	public void setId(String id){
 		mId = id;
 	}
+	public String getText(){
+		return mText;
+	}
+
+	public void setText(String text){
+		mText = text;
+	}
 	public double getLatitude(){
 		return mLatitude;
 	}
