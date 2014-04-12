@@ -2,13 +2,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/back" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" 
+        android:layout_height="match_parent"
         android:background="@color/black">
-        
+
         <ImageView
             android:id="@+id/eisei"
             android:layout_width="match_parent"
@@ -18,8 +19,8 @@
             android:layout_marginTop="5dp"
             android:src="@drawable/eisei" />
 
-        <ImageView 
-            android:id="@+id/earth" 
+        <ImageView
+            android:id="@+id/earth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -31,12 +32,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/earth"
-            
+
             android:background="#f00"
             android:gravity="right"
             android:orientation="vertical" >
 
-            
+
 
             <TextView
                 android:id="@+id/limit_clock"
@@ -47,7 +48,7 @@
                 android:text="あいうえおあいうえお"
                 android:textColor="@color/white" />
         </LinearLayout>
-        <Button 
+        <Button
             android:id="@+id/post_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +67,7 @@
             android:layout_height="match_parent"
             android:layout_above="@id/post_button"
             android:layout_below="@id/eisei"
-            
+
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="5dp"
@@ -74,9 +75,9 @@
             android:background="#fd8"
             android:textColor="@color/black"
             android:padding="50px"
-            
+
             android:text="TextView" />
 
     </RelativeLayout>
-     
+
 </FrameLayout>

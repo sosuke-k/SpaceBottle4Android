@@ -64,7 +64,8 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 			@Override
 			public void onClick(View v) {
 				// TODO 自動生成されたメソッド・スタブ
-				Intent intent = new Intent(getApplicationContext(),PostActivity.class);
+				//Intent intent = new Intent(getApplicationContext(),PostActivity.class);
+				Intent intent = new Intent(getApplicationContext(),ReceiveMessageActivity.class);
 				intent.putExtra("position", mPosition);
 				startActivity(intent);
 			}

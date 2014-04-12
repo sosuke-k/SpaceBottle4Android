@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:baselineAligned="false" >
+    android:baselineAligned="false"
+    android:background="@drawable/back">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dip"
