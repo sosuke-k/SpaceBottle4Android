@@ -51,7 +51,9 @@ public class PushHandler extends NotificationsHandler {
 			NotificationManager mNotificationManager;
 			mNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 			Intent intent = new Intent(context, ReceiveMessageActivity.class);
-			intent.putExtra("bundle",bundle);
+			intent.putExtra("message_text",bundle.getString("message_text"));
+			intent.putExtra("satellite_id", bundle.getString("satelliteId"));
+			intent.putExtra("ticket_id", bundle.getString("ticketId"));
 			PendingIntent mPendingIntent = PendingIntent.getActivity(context, 0,
 	    		intent,
 	    		PendingIntent.FLAG_UPDATE_CURRENT);

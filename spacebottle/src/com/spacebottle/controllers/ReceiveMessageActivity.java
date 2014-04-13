@@ -22,6 +22,7 @@ public class ReceiveMessageActivity extends SBActivity {
 
 	public static final String PREFERENCES_FILE_NAME = "preference";
 	private ImageView satelite;
+	private ImageView satelite_empty;
 	private ImageView bottle;
 	private Display disp;
 	private SharedPreferences pref;
@@ -36,6 +37,7 @@ public class ReceiveMessageActivity extends SBActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_receive_message);
 		satelite = (ImageView)findViewById(R.id.satelite);
+		satelite_empty = (ImageView)findViewById(R.id.satelite_empty_r);
 		bottle = (ImageView)findViewById(R.id.bottle);
 		WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
 		disp = wm.getDefaultDisplay();
@@ -70,22 +72,24 @@ public class ReceiveMessageActivity extends SBActivity {
             public void run() {
             	Intent intent2 = new Intent(getApplicationContext(),HomeActivity.class);
             	intent2.putExtra("message_text",intent.getStringExtra("message_text"));
-    			intent2.putExtra("satellite_id", intent.getStringExtra("satelliteId"));
-    			intent2.putExtra("ticket_id",intent.getStringExtra("ticketId"));
+    			intent2.putExtra("satellite_id", intent.getStringExtra("satellite_id"));
+    			intent2.putExtra("ticket_id",intent.getStringExtra("ticket_id"));
     			startActivity(intent2);
             }
         }, 4500);
 	}
 	public void sateliteAnim(){
 		satelite.setVisibility(View.VISIBLE);
-		Animation anim = new TranslateAnimation(Animation.ABSOLUTE,disp.getWidth(),Animation.ABSOLUTE,0,
+		Animation anim = new TranslateAnimation(Animation.ABSOLUTE,-disp.getWidth(),Animation.ABSOLUTE,0,
 				Animation.ABSOLUTE,0,Animation.ABSOLUTE,0);
 		anim.setDuration(5000);
 		satelite.startAnimation(anim);
 	}
 
 	public void bottleAnim(){
+		satelite.setVisibility(View.GONE);
 		bottle.setVisibility(View.VISIBLE);
+		satelite_empty.setVisibility(View.VISIBLE);
 		Animation anim1 = new TranslateAnimation(Animation.ABSOLUTE,disp.getWidth()/2 + 500,Animation.ABSOLUTE,0,Animation.ABSOLUTE,1000,Animation.ABSOLUTE,disp.getHeight()/2
 				);
 		Animation anim2 = new ScaleAnimation(0.1f,1,0.1f,1);
@@ -100,8 +104,8 @@ public class ReceiveMessageActivity extends SBActivity {
             public void run() {
             	Intent intent2 = new Intent(getApplicationContext(),PostActivity.class);
             	intent2.putExtra("message_text",intent.getStringExtra("message_text"));
-    			intent2.putExtra("satellite_id", intent.getStringExtra("satelliteId"));
-    			intent2.putExtra("ticket_id",intent.getStringExtra("ticketId"));
+    			intent2.putExtra("satellite_id", intent.getStringExtra("satellite_id"));
+    			intent2.putExtra("ticket_id",intent.getStringExtra("ticket_id"));
     			startActivity(intent2);
             }
         }, 4500);

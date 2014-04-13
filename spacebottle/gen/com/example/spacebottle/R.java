@@ -220,23 +220,25 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_light=0x7f020019;
         public static final int earth=0x7f02001a;
         public static final int eisei=0x7f02001b;
-        public static final int gradient_box=0x7f02001c;
-        public static final int ic_launcher=0x7f02001d;
-        public static final int ic_plusone_medium_off_client=0x7f02001e;
-        public static final int ic_plusone_small_off_client=0x7f02001f;
-        public static final int ic_plusone_standard_off_client=0x7f020020;
-        public static final int ic_plusone_tall_off_client=0x7f020021;
-        public static final int logo=0x7f020022;
+        public static final int eisei_empty=0x7f02001c;
+        public static final int gradient_box=0x7f02001d;
+        public static final int ic_launcher=0x7f02001e;
+        public static final int ic_plusone_medium_off_client=0x7f02001f;
+        public static final int ic_plusone_small_off_client=0x7f020020;
+        public static final int ic_plusone_standard_off_client=0x7f020021;
+        public static final int ic_plusone_tall_off_client=0x7f020022;
+        public static final int logo=0x7f020023;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f050015;
-        public static final int action_settings=0x7f05001b;
-        public static final int bottle=0x7f050012;
-        public static final int bottle_send=0x7f050014;
+        public static final int LinearLayout1=0x7f050017;
+        public static final int action_settings=0x7f05001e;
+        public static final int bottle=0x7f050013;
+        public static final int bottle_send=0x7f050016;
         public static final int buttonAddToDo=0x7f050009;
-        public static final int checkToDoItem=0x7f050018;
-        public static final int dialog_edittext=0x7f050017;
-        public static final int dialog_textview=0x7f050016;
+        public static final int checkToDoItem=0x7f05001b;
+        public static final int dialog_edittext=0x7f050018;
+        public static final int dialog_textview=0x7f05001a;
+        public static final int diaog_imageview=0x7f050019;
         public static final int editTextMessage=0x7f050005;
         public static final int eisei=0x7f05000b;
         public static final int hybrid=0x7f050004;
@@ -245,14 +247,16 @@ containing a value of this type.
         public static final int listViewToDo=0x7f05000a;
         public static final int loadingProgressBar=0x7f050007;
         public static final int logo=0x7f05000c;
-        public static final int menu_refresh=0x7f050019;
-        public static final int menu_send=0x7f05001a;
+        public static final int menu_refresh=0x7f05001c;
+        public static final int menu_send=0x7f05001d;
         public static final int message_text_view=0x7f05000e;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
         public static final int post_button=0x7f05000f;
         public static final int satelite=0x7f050011;
-        public static final int satelite_send=0x7f050013;
+        public static final int satelite_empty=0x7f050014;
+        public static final int satelite_empty_r=0x7f050012;
+        public static final int satelite_send=0x7f050015;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int textNewToDo=0x7f050008;
@@ -269,8 +273,9 @@ containing a value of this type.
         public static final int activity_receive_message=0x7f030004;
         public static final int activity_send_message=0x7f030005;
         public static final int activity_to_do=0x7f030006;
-        public static final int edit_dialog=0x7f030007;
-        public static final int row_list_to_do=0x7f030008;
+        public static final int dialog_custom=0x7f030007;
+        public static final int edit_dialog=0x7f030008;
+        public static final int row_list_to_do=0x7f030009;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;

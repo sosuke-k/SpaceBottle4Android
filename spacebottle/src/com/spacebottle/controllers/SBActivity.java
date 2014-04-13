@@ -24,17 +24,17 @@ abstract class SBActivity extends Activity {
 	protected MobileServiceClient mClient;
 	private ProgressBar mProgressBar;
 	protected Context self;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		self = this;
 	}
-	
+
 	protected final void setProgressBar(ProgressBar progressBar){
 		mProgressBar = progressBar;
 	}
-	
+
 	protected void connect(final SBAuthenticateCallback callback){
 		try {
 			// Create the Mobile Service Client instance, using the provided
@@ -43,14 +43,14 @@ abstract class SBActivity extends Activity {
 					"https://spacebottle.azure-mobile.net/",
 					"NIxTTzFiVmtUptmvETPKInerCKgRub76",
 					this).withFilter(new ProgressFilter());
-			
+
 			authenticate(callback);
 
 		} catch (MalformedURLException e) {
-			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
+			//createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 	}
-	
+
 	protected void authenticate(final SBAuthenticateCallback callback) {
 
 	    mClient.login(MobileServiceAuthenticationProvider.Facebook,
@@ -61,30 +61,30 @@ abstract class SBActivity extends Activity {
 	                        Exception exception, ServiceFilterResponse response) {
 
 	                    if (exception == null) {
-	                        createAndShowDialog(String.format(
+	                        /*createAndShowDialog(String.format(
 	                                        "You are now logged in - %1$2s",
-	                                        user.getUserId()), "Success");
+	                                        user.getUserId()), "Success");*/
 	                        callback.success();
 	                    } else {
-	                        createAndShowDialog("You must log in. Login Required", "Error");
+	                        //createAndShowDialog("You must log in. Login Required", "Error");
 	                        callback.error(exception);
 	                    }
 	                }
 	            });
 	}
-	
+
 	protected void showProgressBar(){
 		if(mProgressBar != null){
 			mProgressBar.setVisibility(ProgressBar.VISIBLE);
 		}
 	}
-	
+
 	protected void hideProgressBar(){
 		if(mProgressBar != null){
 			mProgressBar.setVisibility(ProgressBar.GONE);
 		}
 	}
-	
+
 	protected void createAndShowDialog(Exception exception, String title) {
 		Throwable ex = exception;
 		if(exception.getCause() != null){
@@ -100,9 +100,9 @@ abstract class SBActivity extends Activity {
 		builder.setTitle(title);
 		builder.create().show();
 	}
-	
+
 	private class ProgressFilter implements ServiceFilter {
-		
+
 		@Override
 		public void handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback,
 				final ServiceFilterResponseCallback responseCallback) {
@@ -113,9 +113,9 @@ abstract class SBActivity extends Activity {
 					showProgressBar();
 				}
 			});
-			
+
 			nextServiceFilterCallback.onNext(request, new ServiceFilterResponseCallback() {
-				
+
 				@Override
 				public void onResponse(ServiceFilterResponse response, Exception exception) {
 					runOnUiThread(new Runnable() {
@@ -125,7 +125,7 @@ abstract class SBActivity extends Activity {
 							hideProgressBar();
 						}
 					});
-					
+
 					if (responseCallback != null)  responseCallback.onResponse(response, exception);
 				}
 			});

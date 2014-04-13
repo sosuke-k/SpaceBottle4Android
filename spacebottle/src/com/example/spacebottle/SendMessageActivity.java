@@ -19,6 +19,7 @@ import com.spacebottle.controllers.HomeActivity;
 public class SendMessageActivity extends Activity {
 
 	private ImageView satelite;
+	private ImageView satelite_empty;
 	private ImageView bottle;
 	private Display disp;
 
@@ -27,6 +28,7 @@ public class SendMessageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_send_message);
 		satelite = (ImageView)findViewById(R.id.satelite_send);
+		satelite_empty = (ImageView)findViewById(R.id.satelite_empty);
 		bottle = (ImageView)findViewById(R.id.bottle_send);
 		WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
 		disp = wm.getDefaultDisplay();
@@ -49,8 +51,9 @@ public class SendMessageActivity extends Activity {
 
 	public void sateliteAnim(){
 		bottle.setVisibility(View.GONE);
+		satelite_empty.setVisibility(View.GONE);
 		satelite.setVisibility(View.VISIBLE);
-		Animation anim = new TranslateAnimation(Animation.ABSOLUTE,0,Animation.ABSOLUTE,-disp.getWidth(),
+		Animation anim = new TranslateAnimation(Animation.ABSOLUTE,0,Animation.ABSOLUTE,disp.getWidth(),
 				Animation.ABSOLUTE,0,Animation.ABSOLUTE,0);
 		anim.setDuration(5000);
 		satelite.startAnimation(anim);

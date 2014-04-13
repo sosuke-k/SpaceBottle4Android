@@ -2,7 +2,26 @@ package com.spacebottle.controllers;
 
 import java.util.List;
 
-import com.example.spacebottle.MyHandler;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Looper;
+import android.view.Display;
+import android.view.Menu;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import com.example.spacebottle.R;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.microsoft.windowsazure.messaging.NotificationHub;
@@ -13,30 +32,8 @@ import com.microsoft.windowsazure.notifications.NotificationsManager;
 import com.spacebottle.helper.SBAuthenticateCallback;
 import com.spacebottle.models.Device;
 import com.spacebottle.models.Devices;
-import com.spacebottle.models.Messages;
 import com.spacebottle.models.Position;
 import com.spacebottle.models.Positions;
-
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Looper;
-import android.os.Message;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 public class HomeActivity extends SBActivity implements LocationListener  {
 	public static final String PREFERENCES_FILE_NAME = "preference";
@@ -49,6 +46,9 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 	private GoogleCloudMessaging gcm;
 	private NotificationHub hub;
 
+	private ImageView satelite;
+	private Display disp;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,8 +59,11 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
 		hideProgressBar();
 
+		WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
+		disp = wm.getDefaultDisplay();
 
-//		ImageView eisei = (ImageView) findViewById(R.id.eisei);
+		satelite = (ImageView) findViewById(R.id.eisei);
+
 //		eisei.setOnClickListener(new OnClickListener(){
 
 		connect(new SBAuthenticateCallback(){
@@ -69,12 +72,21 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 			public void success() {
 				hideProgressBar();
 				initialize();
+				sateliteAnim();
 			}
 
 			@Override
 			public void error(Exception exception) {
 				// TODO Auto-generated method stub
 			}});
+	}
+	public void sateliteAnim(){
+		satelite.setVisibility(View.VISIBLE);
+		Animation anim = new TranslateAnimation(Animation.ABSOLUTE,-disp.getWidth(),Animation.ABSOLUTE,disp.getWidth(),
+				Animation.ABSOLUTE,0,Animation.ABSOLUTE,0);
+		anim.setDuration(10000);
+		anim.setRepeatCount(Animation.INFINITE);
+		satelite.startAnimation(anim);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -117,7 +129,7 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
+
 	private void initialize(){
 		NotificationsManager.handleNotifications(this, "879711313152", PushHandler.class);
 		gcm = GoogleCloudMessaging.getInstance(this);

@@ -13,6 +13,14 @@
         android:src="@drawable/eisei"
         android:visibility="gone" />
     <ImageView
+        android:id="@+id/satelite_empty_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/eisei_empty"
+        android:visibility="gone" />
+    <ImageView
         android:id="@+id/bottle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
