@@ -183,6 +183,10 @@ containing a value of this type.
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    
          */
         public static final int activity_horizontal_margin=0x7f080000;
         public static final int activity_vertical_margin=0x7f080001;
@@ -225,29 +229,30 @@ containing a value of this type.
         public static final int logo=0x7f020022;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f050014;
-        public static final int action_settings=0x7f05001a;
-        public static final int bottle=0x7f050013;
+        public static final int LinearLayout1=0x7f050015;
+        public static final int action_settings=0x7f05001b;
+        public static final int bottle=0x7f050012;
+        public static final int bottle_send=0x7f050014;
         public static final int buttonAddToDo=0x7f050009;
-        public static final int checkToDoItem=0x7f050017;
-        public static final int dialog_edittext=0x7f050016;
-        public static final int dialog_textview=0x7f050015;
-        public static final int earth=0x7f05000c;
+        public static final int checkToDoItem=0x7f050018;
+        public static final int dialog_edittext=0x7f050017;
+        public static final int dialog_textview=0x7f050016;
         public static final int editTextMessage=0x7f050005;
         public static final int eisei=0x7f05000b;
         public static final int hybrid=0x7f050004;
-        public static final int limit_clock=0x7f05000f;
-        public static final int limit_clock_container=0x7f05000e;
+        public static final int limit_clock=0x7f050010;
+        public static final int limit_clock_container=0x7f05000d;
         public static final int listViewToDo=0x7f05000a;
         public static final int loadingProgressBar=0x7f050007;
-        public static final int logo=0x7f05000d;
-        public static final int menu_refresh=0x7f050018;
-        public static final int menu_send=0x7f050019;
-        public static final int message_text_view=0x7f050011;
+        public static final int logo=0x7f05000c;
+        public static final int menu_refresh=0x7f050019;
+        public static final int menu_send=0x7f05001a;
+        public static final int message_text_view=0x7f05000e;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int post_button=0x7f050010;
-        public static final int satelite=0x7f050012;
+        public static final int post_button=0x7f05000f;
+        public static final int satelite=0x7f050011;
+        public static final int satelite_send=0x7f050013;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int textNewToDo=0x7f050008;
@@ -262,14 +267,16 @@ containing a value of this type.
         public static final int activity_main=0x7f030002;
         public static final int activity_post=0x7f030003;
         public static final int activity_receive_message=0x7f030004;
-        public static final int activity_to_do=0x7f030005;
-        public static final int edit_dialog=0x7f030006;
-        public static final int row_list_to_do=0x7f030007;
+        public static final int activity_send_message=0x7f030005;
+        public static final int activity_to_do=0x7f030006;
+        public static final int edit_dialog=0x7f030007;
+        public static final int row_list_to_do=0x7f030008;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;
         public static final int edit_message=0x7f0a0001;
         public static final int receive_message=0x7f0a0002;
+        public static final int send_message=0x7f0a0003;
     }
     public static final class string {
         public static final int action_settings=0x7f060026;
@@ -382,6 +389,7 @@ containing a value of this type.
         public static final int mobile_services=0x7f06001e;
         public static final int sender_id=0x7f060021;
         public static final int title_activity_edit_message=0x7f060025;
+        public static final int title_activity_send_message=0x7f060028;
     }
     public static final class style {
         /** 
