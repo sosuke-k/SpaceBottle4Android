@@ -1,5 +1,7 @@
 package com.spacebottle.controllers;
 
+import java.util.Date;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -39,6 +41,10 @@ public class PushHandler extends NotificationsHandler {
 		super.onReceive(context, bundle);
 
 		pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+		Date now = new Date();
+		SharedPreferences.Editor editor = pref.edit();
+		editor.putLong("limit",now.getTime());
+		editor.commit();
 		int flag = (int)pref.getInt("background-flag", 0);
 
 		if(flag == 0){
@@ -67,7 +73,9 @@ public class PushHandler extends NotificationsHandler {
 		} else {
 			Log.d("tet",bundle.getString("message"));
 			Intent intent = new Intent(context,ReceiveMessageActivity.class);
-			intent.putExtra("bundle",bundle);
+			intent.putExtra("message_text",bundle.getString("message_text"));
+			intent.putExtra("satellite_id", bundle.getString("satelliteId"));
+			intent.putExtra("ticket_id", bundle.getString("ticketId"));
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			context.startActivity(intent);
 		}

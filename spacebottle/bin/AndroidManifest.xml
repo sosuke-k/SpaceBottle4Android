@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.spacebottle"
     android:versionCode="1"
@@ -8,55 +9,68 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <permission android:name="spacebottle.permission.C2D_MESSAGE"
-    android:protectionLevel="signature" />
-	<uses-permission android:name="spacebottle.permission.C2D_MESSAGE" />
-	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-	<uses-permission android:name="android.permission.VIBRATE"/>
 
+    <permission
+        android:name="spacebottle.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="spacebottle.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-         <activity
-             android:name="ToDoActivity"
-             android:label="@string/app_name">
-    	</activity>
-    	<activity
-    	    android:name="com.spacebottle.controllers.HomeActivity"
-            android:label="@string/app_name">
-        	<intent-filter>
-            	<action android:name="android.intent.action.MAIN" />
-            	<category android:name="android.intent.category.LAUNCHER" />
-        	</intent-filter>
-    	</activity>
-    	<activity android:name=".SubActivity"></activity>
-    	<service
-    	    android:name="com.spacebottle.controllers.BackendService">
-    	</service>
-	    <receiver
-	        android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-	        android:permission="com.google.android.c2dm.permission.SEND">
-		    <intent-filter>
-		        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-		        <category android:name="spacebottle" />
-		    </intent-filter>
-		</receiver>
-		<receiver android:name="com.spacebottle.controllers.OnBootReceiver">
+        <activity
+            android:name="com.example.spacebottle.ToDoActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.spacebottle.controllers.HomeActivity"
+            android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.spacebottle.SubActivity" >
+        </activity>
+
+        <service android:name="com.spacebottle.controllers.BackendService" >
+        </service>
+
+        <receiver
+            android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="spacebottle" />
             </intent-filter>
         </receiver>
-		<activity android:name="com.spacebottle.controllers.PostActivity"></activity>
-		<activity android:name="com.spacebottle.controllers.ReceiveMessageActivity"></activity>
+        <receiver android:name="com.spacebottle.controllers.OnBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.spacebottle.controllers.PostActivity" >
+        </activity>
+        <activity android:name="com.spacebottle.controllers.ReceiveMessageActivity" >
+        </activity>
+        <activity
+            android:name="com.example.spacebottle.SendMessageActivity"
+            android:label="@string/title_activity_send_message" >
+        </activity>
     </application>
 
 </manifest>

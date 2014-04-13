@@ -53,7 +53,7 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.activity_main);
 
 		self = this;
 		setProgressBar((ProgressBar) findViewById(R.id.loadingProgressBar));
@@ -63,18 +63,6 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 //		ImageView eisei = (ImageView) findViewById(R.id.eisei);
 //		eisei.setOnClickListener(new OnClickListener(){
 
-		Button btn = (Button)findViewById(R.id.buttonAddToDo);
-		btn.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				// TODO 自動生成されたメソッド・スタブ
-				//Intent intent = new Intent(getApplicationContext(),PostActivity.class);
-				Intent intent = new Intent(getApplicationContext(),ReceiveMessageActivity.class);
-				intent.putExtra("position", mPosition);
-				startActivity(intent);
-			}
-		});
 		connect(new SBAuthenticateCallback(){
 
 			@Override
@@ -129,14 +117,7 @@ public class HomeActivity extends SBActivity implements LocationListener  {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == R.id.menu_refresh) {
-			updateCurrentPosition();
-		}
-
-		return true;
-	}
+	
 	private void initialize(){
 		NotificationsManager.handleNotifications(this, "879711313152", PushHandler.class);
 		gcm = GoogleCloudMessaging.getInstance(this);

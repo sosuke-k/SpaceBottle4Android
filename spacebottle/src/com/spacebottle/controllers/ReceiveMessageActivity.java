@@ -1,7 +1,9 @@
 package com.spacebottle.controllers;
 
-import android.app.Activity;
+import java.util.Date;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Display;
@@ -16,32 +18,63 @@ import android.widget.ImageView;
 
 import com.example.spacebottle.R;
 
-public class ReceiveMessageActivity extends Activity {
+public class ReceiveMessageActivity extends SBActivity {
 
+	public static final String PREFERENCES_FILE_NAME = "preference";
 	private ImageView satelite;
 	private ImageView bottle;
 	private Display disp;
+	private SharedPreferences pref;
 
 	private Intent intent;
+	private Bundle bundle;
+	private String ticketId;
+	private Date limit;
 
-	private SequentialAnimationsRunner anim_runner;
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_receive_message);
 		satelite = (ImageView)findViewById(R.id.satelite);
 		bottle = (ImageView)findViewById(R.id.bottle);
-		intent = getIntent();
 		WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
 		disp = wm.getDefaultDisplay();
-		sateliteAnim();
+		intent = getIntent();
+		pref = getSharedPreferences(PREFERENCES_FILE_NAME, 0);
+		Long limit = (Long)pref.getLong("limit", (new Date()).getTime());
+		Date now = new Date();
+
+		if(now.getTime() < limit + 600000){
+			sateliteAnim();
+			Handler handler = new Handler();
+	        handler.postDelayed(new Runnable() {
+	            @Override
+	            public void run() {
+	                bottleAnim();
+	            }
+	        }, 5000);
+		} else {
+			sateliteGone();
+		}
+	}
+
+	public void sateliteGone(){
+		satelite.setVisibility(View.VISIBLE);
+		Animation anim = new TranslateAnimation(Animation.ABSOLUTE,0,Animation.ABSOLUTE,0,
+				Animation.ABSOLUTE,disp.getHeight()/2,Animation.ABSOLUTE,disp.getHeight() + 20);
+		anim.setDuration(5000);
+		satelite.startAnimation(anim);
 		Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+		handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                bottleAnim();
+            	Intent intent2 = new Intent(getApplicationContext(),HomeActivity.class);
+            	intent2.putExtra("message_text",intent.getStringExtra("message_text"));
+    			intent2.putExtra("satellite_id", intent.getStringExtra("satelliteId"));
+    			intent2.putExtra("ticket_id",intent.getStringExtra("ticketId"));
+    			startActivity(intent2);
             }
-        }, 5000);
+        }, 4500);
 	}
 	public void sateliteAnim(){
 		satelite.setVisibility(View.VISIBLE);
@@ -66,7 +99,9 @@ public class ReceiveMessageActivity extends Activity {
             @Override
             public void run() {
             	Intent intent2 = new Intent(getApplicationContext(),PostActivity.class);
-    			intent2.putExtra("bundle",intent.getBundleExtra("bundle"));
+            	intent2.putExtra("message_text",intent.getStringExtra("message_text"));
+    			intent2.putExtra("satellite_id", intent.getStringExtra("satelliteId"));
+    			intent2.putExtra("ticket_id",intent.getStringExtra("ticketId"));
     			startActivity(intent2);
             }
         }, 4500);
